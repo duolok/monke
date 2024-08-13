@@ -1,11 +1,9 @@
 package ast
 
 import (
-    "fmt"
     "bytes"
+    "monke/token"
 )
-
-import "monke/token"
 
 type Node interface {
     TokenLiteral() string
@@ -45,7 +43,7 @@ func (p *Program) String() string {
 }
 
 type LetStatement struct {
-    Token token.Token
+    Token token.Token // the token.LET token
     Name *Identifier
     Value Expression
 }
@@ -62,7 +60,7 @@ func (i *Identifier) expressionNode() {}
 func (i *Identifier) TokenLiteral() string { return i.Token.Literal }
 
 type ReturnStatement struct {
-    Token           token.Token
+    Token           token.Token // this is the 'return' in return statement
     ReturnValue     Expression
 }
 
@@ -70,7 +68,7 @@ func (rs *ReturnStatement) statementNode() {}
 func (rs *ReturnStatement) TokenLiteral() string { return rs.Token.Literal }
 
 type ExpressionStatement struct {
-    Token token.Token
+    Token token.Token // the first token of the expression
     Expression Expression
 }
 
@@ -112,4 +110,3 @@ func (es *ExpressionStatement) String() string {
     }
     return ""
 }
-
