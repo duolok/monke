@@ -5,6 +5,8 @@ import (
 	"monke/object"
 	"monke/parser"
 	"testing"
+
+	"github.com/charmbracelet/x/input"
 )
 
 func TestEvalIntegerExpression(t *testing.T) {
@@ -14,6 +16,8 @@ func TestEvalIntegerExpression(t *testing.T) {
 	}{
 		{"5", 5},
 		{"10", 10},
+		{"-5" , -5},
+		{"-10", -10},
 	}
 
 	for _, tt := range tests {
@@ -96,3 +100,4 @@ func TestBangOperator(t *testing.T) {
 		testBooleanObject(t, evaluated, tt.expected)
 	}
 }
+
