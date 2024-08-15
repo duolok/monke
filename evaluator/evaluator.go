@@ -1,6 +1,7 @@
 package evaluator
 
 import (
+	"fmt"
 	"monke/ast"
 	"monke/object"
 )
@@ -173,4 +174,8 @@ func nativeBoolToBooleanObject(value bool) *object.Boolean {
 		return TRUE
 	}
 	return FALSE
+}
+
+func newError(format string, a ...interface{}) *object.Error {
+    return &object.Error{Message: fmt.Sprintf(format, a...)}
 }
