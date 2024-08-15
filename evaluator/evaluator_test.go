@@ -5,8 +5,6 @@ import (
 	"monke/object"
 	"monke/parser"
 	"testing"
-
-	"github.com/charmbracelet/x/input"
 )
 
 func TestEvalIntegerExpression(t *testing.T) {
